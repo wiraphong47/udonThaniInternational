@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import HeroSection from "../components/Herosection";
 import CountdownSection from "../components/Countdownsection";
 import AboutSection from "../components/Aboutsection";
