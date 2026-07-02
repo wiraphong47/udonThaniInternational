@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
 import wetlandPhoto from "../assets/expo/1645073156193-1068x712-1-1024x683.jpg";
 import expoGardenPhoto from "../assets/expo/081141_0_20260320-140030.jpg";
-import expoAtmospherePhoto from "../assets/expo/images.jpg";
+import mascotPhoto from "../assets/expo/expo-mascots.jpg";
 
 const content = {
   th: {
@@ -17,7 +17,7 @@ const content = {
       { num: "5 ล้าน+", label: "ผู้เข้าชม" },
       { num: "1,000+", label: "พันธุ์พืช" },
     ],
-    caption: "ภาพบรรยากาศพื้นที่โครงการ",
+    caption: "ภาพบรรยากาศงานและมาสคอต",
   },
   en: {
     section: "About the Expo",
@@ -31,7 +31,7 @@ Set within the Nong Dae Wetlands, a vital freshwater ecosystem in Udon Thani, vi
       { num: "5M+", label: "Visitors" },
       { num: "1,000+", label: "Plant Species" },
     ],
-    caption: "Venue area impression photos",
+    caption: "Expo atmosphere and mascots",
   },
   zh: {
     section: "关于博览会",
@@ -45,14 +45,14 @@ Set within the Nong Dae Wetlands, a vital freshwater ecosystem in Udon Thani, vi
       { num: "500万+", label: "参观者" },
       { num: "1,000+", label: "植物品种" },
     ],
-    caption: "场地印象图片",
+    caption: "博览会氛围与吉祥物",
   },
 };
 
 const ABOUT_IMAGES = [
+  { src: mascotPhoto, alt: "Udon Thani expo mascots" },
   { src: expoGardenPhoto, alt: "Udon Thani expo garden" },
   { src: wetlandPhoto, alt: "Nong Dae wetland" },
-  { src: expoAtmospherePhoto, alt: "expo atmosphere" },
 ];
 
 export default function AboutSection({ lang }) {
@@ -71,8 +71,8 @@ export default function AboutSection({ lang }) {
               {t.title}
             </Typography>
             <Divider sx={{ borderColor: "#D4A017", borderWidth: 2, width: 60, mb: 3 }} />
-            {t.body.split("\n\n").map((para, i) => (
-              <Typography key={i} sx={{ fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", color: "#2f5137", lineHeight: 1.85, fontSize: { xs: "0.96rem", md: "1.02rem" }, mb: 2 }}>
+            {t.body.split("\n\n").map((para) => (
+              <Typography key={para} sx={{ fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", color: "#2f5137", lineHeight: 1.85, fontSize: { xs: "0.96rem", md: "1.02rem" }, mb: 2 }}>
                 {para}
               </Typography>
             ))}
