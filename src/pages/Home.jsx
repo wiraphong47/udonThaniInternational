@@ -1,17 +1,17 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 
-import NavBar from "../components/Navbar";
-import HeroSection from "../components/Herosection";
-import CountdownSection from "../components/Countdownsection";
-import AboutSection from "../components/Aboutsection";
-import HighlightsSection from "../components/Highlightssection";
+import NavBar from "../components/NavBar";
+import HeroSection from "../components/HeroSection";
+import CountdownSection from "../components/CountdownSection";
+import AboutSection from "../components/AboutSection";
+import HighlightsSection from "../components/HighlightsSection";
 import GallerySection from "../components/GallerySection";
-import VenueSection from "../components/Venuesection";
-import ActivitiesSection from "../components/Activitiessection";
+import VenueSection from "../components/VenueSection";
+import ActivitiesSection from "../components/ActivitiesSection";
 import CTASection from "../components/CTASection";
 import SponsorsSection from "../components/SponsorsSection";
-import FooterSection from "../components/Footersection";
+import FooterSection from "../components/FooterSection";
 import BackToTop from "../components/BackToTop";
 
 const theme = createTheme({
