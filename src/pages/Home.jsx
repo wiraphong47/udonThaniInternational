@@ -71,10 +71,10 @@ export default function Home() {
         <CountdownSection lang={lang} />
         <AboutSection lang={lang} />
         <HighlightsSection lang={lang} />
-        {/* <GallerySection lang={lang} /> */}
+        <GallerySection lang={lang} />
         <VenueSection lang={lang} />
         <ActivitiesSection lang={lang} />
-        {/* <CTASection lang={lang} /> */}
+        <CTASection lang={lang} />
         <SponsorsSection lang={lang} />
         <FooterSection lang={lang} />
         <BackToTop />

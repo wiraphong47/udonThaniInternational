@@ -45,7 +45,7 @@ export default function CountdownSection({ lang }) {
 
   return (
     <Box
-      id="about"
+      id="countdown"
       sx={{
         background: "#0d2018",
         py: { xs: 7, md: 10 },

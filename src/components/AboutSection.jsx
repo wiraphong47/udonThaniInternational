@@ -1,8 +1,5 @@
 import React from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
-import wetlandPhoto from "../assets/expo/1645073156193-1068x712-1-1024x683.jpg";
-import expoGardenPhoto from "../assets/expo/081141_0_20260320-140030.jpg";
-import mascotPhoto from "../assets/expo/expo-mascots.jpg";
 
 const content = {
   th: {
@@ -49,24 +46,18 @@ Set within the Nong Dae Wetlands, a vital freshwater ecosystem in Udon Thani, vi
   },
 };
 
-const ABOUT_IMAGES = [
-  { src: mascotPhoto, alt: "Udon Thani expo mascots" },
-  { src: expoGardenPhoto, alt: "Udon Thani expo garden" },
-  { src: wetlandPhoto, alt: "Nong Dae wetland" },
-];
-
 export default function AboutSection({ lang }) {
   const t = content[lang];
 
   return (
-    <Box id="about-section" sx={{ background: "#FDF6E3", py: { xs: 8, md: 14 }, px: { xs: 2.25, sm: 3, md: 8 } }}>
+    <Box id="about" sx={{ background: "#FDF6E3", py: { xs: 8, md: 14 }, px: { xs: 2.25, sm: 3, md: 8 } }}>
       <Box sx={{ maxWidth: 1100, mx: "auto" }}>
         <Typography sx={{ color: "#2d6a4f", fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", fontSize: "0.72rem", letterSpacing: { xs: "0.12em", md: "0.3em" }, textTransform: "uppercase", mb: 2, fontWeight: 700 }}>
           {t.section}
         </Typography>
 
         <Grid container spacing={{ xs: 4, md: 8 }} alignItems="flex-start">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12}>
             <Typography variant="h2" sx={{ fontFamily: "'Playfair Display','Noto Serif Thai','Noto Sans SC',serif", fontWeight: 700, fontSize: { xs: "1.85rem", sm: "2.15rem", md: "2.8rem" }, color: "#1B4332", lineHeight: 1.25, mb: 3 }}>
               {t.title}
             </Typography>
@@ -76,33 +67,6 @@ export default function AboutSection({ lang }) {
                 {para}
               </Typography>
             ))}
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(3, 1fr)" },
-                gridTemplateRows: { xs: "190px 150px", sm: "200px 180px" },
-                gap: "8px",
-                borderRadius: "6px",
-                overflow: "hidden",
-              }}
-            >
-              <Box sx={{ gridColumn: { xs: "span 2", sm: "span 2" }, gridRow: { xs: "span 1", sm: "span 2" }, overflow: "hidden", borderRadius: "6px 0 0 6px" }}>
-                <img src={ABOUT_IMAGES[0].src} alt={ABOUT_IMAGES[0].alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </Box>
-              <Box sx={{ overflow: "hidden", borderRadius: { xs: "0 0 0 6px", sm: "0 6px 0 0" } }}>
-                <img src={ABOUT_IMAGES[1].src} alt={ABOUT_IMAGES[1].alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </Box>
-              <Box sx={{ overflow: "hidden", borderRadius: "0 0 6px 0" }}>
-                <img src={ABOUT_IMAGES[2].src} alt={ABOUT_IMAGES[2].alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </Box>
-            </Box>
-
-            <Typography sx={{ fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", color: "#2d6a4f", fontSize: "0.75rem", mt: 1.5, textAlign: { xs: "left", sm: "right" }, fontStyle: "italic" }}>
-              © {t.caption}
-            </Typography>
           </Grid>
         </Grid>
 
