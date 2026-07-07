@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Grid, Paper } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 
 const content = {
   th: {
@@ -69,62 +69,73 @@ export default function CountdownSection({ lang }) {
         {t.label}
       </Typography>
 
-      <Grid container spacing={{ xs: 1.2, sm: 2, md: 3 }} justifyContent="center" sx={{ maxWidth: 760, mx: "auto", mb: 3 }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "repeat(2, minmax(0, 1fr))",
+            sm: "repeat(4, minmax(0, 1fr))",
+          },
+          gap: { xs: 1.2, sm: 2, md: 3 },
+          maxWidth: 760,
+          mx: "auto",
+          mb: 3,
+        }}
+      >
         {values.map((val, i) => (
-          <Grid item xs={6} sm={3} key={t.units[i]}>
-            <Paper
-              elevation={0}
+          <Paper
+            key={t.units[i]}
+            elevation={0}
+            sx={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(212,160,23,0.2)",
+              borderRadius: "4px",
+              py: { xs: 2.4, md: 4 },
+              px: { xs: 1, md: 2 },
+              minHeight: { xs: 118, md: 154 },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              overflow: "hidden",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "2px",
+                background: "linear-gradient(90deg, transparent, #D4A017, transparent)",
+              },
+            }}
+          >
+            <Typography
               sx={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(212,160,23,0.2)",
-                borderRadius: "4px",
-                py: { xs: 2.4, md: 4 },
-                px: { xs: 1, md: 2 },
-                minHeight: { xs: 118, md: 154 },
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
-                overflow: "hidden",
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "2px",
-                  background: "linear-gradient(90deg, transparent, #D4A017, transparent)",
-                },
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                fontSize: { xs: "2.45rem", sm: "3rem", md: "3.8rem" },
+                color: "#FDF6E3",
+                lineHeight: 1,
+                mb: 0.75,
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: 700,
-                  fontSize: { xs: "2.45rem", sm: "3rem", md: "3.8rem" },
-                  color: "#FDF6E3",
-                  lineHeight: 1,
-                  mb: 0.75,
-                }}
-              >
-                {String(val).padStart(2, "0")}
-              </Typography>
-              <Typography
-                sx={{
-                  color: "#D4A017",
-                  fontFamily: "'Inter', 'Noto Sans Thai', 'Noto Sans SC', sans-serif",
-                  fontSize: { xs: "0.7rem", md: "0.72rem" },
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                }}
-              >
-                {t.units[i]}
-              </Typography>
-            </Paper>
-          </Grid>
+              {String(val).padStart(2, "0")}
+            </Typography>
+            <Typography
+              sx={{
+                color: "#D4A017",
+                fontFamily: "'Inter', 'Noto Sans Thai', 'Noto Sans SC', sans-serif",
+                fontSize: { xs: "0.7rem", md: "0.72rem" },
+                fontWeight: 700,
+                textTransform: "uppercase",
+              }}
+            >
+              {t.units[i]}
+            </Typography>
+          </Paper>
         ))}
-      </Grid>
+      </Box>
 
       <Typography
         sx={{
