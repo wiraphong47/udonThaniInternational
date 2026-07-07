@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  Box, Typography, Grid, Card, CardContent,
+  Box, Typography, Card, CardContent,
   Dialog, DialogContent, DialogTitle, IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -96,40 +96,82 @@ export default function HighlightsSection({ lang }) {
           </Typography>
         </Box>
 
-        <Grid container spacing={{ xs: 2, md: 3 }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", lg: "repeat(3, minmax(0, 1fr))" },
+            gap: { xs: 2, md: 3 },
+          }}
+        >
           {t.items.map((item, i) => {
             const Icon = item.icon;
             return (
-              <Grid item xs={12} sm={6} md={4} key={item.title}>
-                <Card
-                  elevation={0}
-                  onClick={() => setSelected(i)}
+              <Card
+                key={item.title}
+                elevation={0}
+                onClick={() => setSelected(i)}
+                sx={{
+                  position: "relative",
+                  overflow: "hidden",
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035))",
+                  border: "1px solid rgba(212,160,23,0.24)",
+                  borderRadius: "8px",
+                  minHeight: { xs: 214, md: 252 },
+                  cursor: "pointer",
+                  boxShadow: "inset 0 1px 0 rgba(253,246,227,0.08), 0 18px 38px rgba(5,15,9,0.18)",
+                  transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    inset: 0,
+                    borderTop: "3px solid rgba(212,160,23,0.76)",
+                    opacity: 0,
+                    transition: "opacity 0.25s ease",
+                  },
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    top: 16,
+                    right: 16,
+                    width: 64,
+                    height: 64,
+                    border: "1px solid rgba(212,160,23,0.12)",
+                    borderRadius: "50%",
+                    opacity: 0.75,
+                  },
+                  "&:hover": {
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.045))",
+                    borderColor: "rgba(212,160,23,0.62)",
+                    transform: { md: "translateY(-6px)" },
+                    boxShadow: "inset 0 1px 0 rgba(253,246,227,0.12), 0 22px 48px rgba(5,15,9,0.36)",
+                    "&::before": { opacity: 1 },
+                  },
+                }}
+              >
+                <CardContent
                   sx={{
-                    background: "rgba(255,255,255,0.055)",
-                    border: "1px solid rgba(212,160,23,0.18)",
-                    borderRadius: "6px",
+                    position: "relative",
+                    zIndex: 1,
                     height: "100%",
-                    cursor: "pointer",
-                    transition: "all 0.25s ease",
-                    "&:hover": { borderColor: "rgba(212,160,23,0.5)", transform: { md: "translateY(-6px)" }, boxShadow: "0 16px 40px rgba(0,0,0,0.32)" },
+                    p: { xs: 2.5, md: 3 },
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
-                  <CardContent sx={{ p: { xs: 2.5, md: 3 }, minHeight: { xs: 0, md: 216 } }}>
-                    <Box sx={{ width: 42, height: 42, borderRadius: "6px", background: "rgba(212,160,23,0.14)", display: "flex", alignItems: "center", justifyContent: "center", mb: 2 }}>
-                      <Icon sx={{ color: "#D4A017", fontSize: 24 }} />
-                    </Box>
-                    <Typography sx={{ fontFamily: "'Playfair Display','Noto Serif Thai','Noto Sans SC',serif", fontWeight: 700, fontSize: { xs: "1.08rem", md: "1.12rem" }, color: "#FDF6E3", mb: 1 }}>
-                      {item.title}
-                    </Typography>
-                    <Typography sx={{ fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", color: "rgba(253,246,227,0.84)", fontSize: "0.9rem", lineHeight: 1.75 }}>
-                      {item.desc}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+                  <Box sx={{ width: 48, height: 48, borderRadius: "8px", background: "rgba(212,160,23,0.16)", border: "1px solid rgba(212,160,23,0.18)", display: "flex", alignItems: "center", justifyContent: "center", mb: 2.5, boxShadow: "inset 0 1px 0 rgba(253,246,227,0.1)" }}>
+                    <Icon sx={{ color: "#D4A017", fontSize: 25 }} />
+                  </Box>
+                  <Typography sx={{ fontFamily: "'Playfair Display','Noto Serif Thai','Noto Sans SC',serif", fontWeight: 700, fontSize: { xs: "1.08rem", md: "1.16rem" }, color: "#FDF6E3", mb: 1.25, lineHeight: 1.35 }}>
+                    {item.title}
+                  </Typography>
+                  <Typography sx={{ fontFamily: "'Inter','Noto Sans Thai','Noto Sans SC',sans-serif", color: "rgba(253,246,227,0.84)", fontSize: "0.9rem", lineHeight: 1.75 }}>
+                    {item.desc}
+                  </Typography>
+                </CardContent>
+              </Card>
             );
           })}
-        </Grid>
+        </Box>
       </Box>
 
       <Dialog
