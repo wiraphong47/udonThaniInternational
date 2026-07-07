@@ -9,7 +9,6 @@ import HighlightsSection from "../components/HighlightsSection";
 import GallerySection from "../components/GallerySection";
 import VenueSection from "../components/VenueSection";
 import ActivitiesSection from "../components/ActivitiesSection";
-import CTASection from "../components/CTASection";
 import SponsorsSection from "../components/SponsorsSection";
 import FooterSection from "../components/FooterSection";
 import BackToTop from "../components/BackToTop";
@@ -74,7 +73,6 @@ export default function Home() {
         <GallerySection lang={lang} />
         <VenueSection lang={lang} />
         <ActivitiesSection lang={lang} />
-        <CTASection lang={lang} />
         <SponsorsSection lang={lang} />
         <FooterSection lang={lang} />
         <BackToTop />
