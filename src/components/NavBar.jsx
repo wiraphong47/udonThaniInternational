@@ -9,9 +9,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 
 const navItems = {
-  th: ["เกี่ยวกับงาน", "ไฮไลท์", "สถานที่", "กิจกรรม", "ติดต่อ"],
-  en: ["About", "Highlights", "Venue", "Activities", "Contact"],
-  zh: ["关于", "亮点", "场地", "活动", "联系"],
+  th: ["เกี่ยวกับงาน", "ไฮไลท์", "สถานที่", "กิจกรรม", "About me", "ติดต่อ"],
+  en: ["About", "Highlights", "Venue", "Activities", "About me", "Contact"],
+  zh: ["关于", "亮点", "场地", "活动", "About me", "联系"],
 };
 
 const brand = {
@@ -46,7 +46,7 @@ export default function NavBar({ lang, setLang }) {
     setDrawerOpen(false);
   };
 
-  const sectionIds = ["about", "highlights", "venue", "activities", "contact"];
+  const sectionIds = ["about", "highlights", "venue", "activities", "about-me", "contact"];
 
   return (
     <>

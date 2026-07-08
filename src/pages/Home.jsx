@@ -10,6 +10,7 @@ import GallerySection from "../components/GallerySection";
 import VenueSection from "../components/VenueSection";
 import ActivitiesSection from "../components/ActivitiesSection";
 import SponsorsSection from "../components/SponsorsSection";
+import PersonalSection from "../components/PersonalSection";
 import FooterSection from "../components/FooterSection";
 import BackToTop from "../components/BackToTop";
 
@@ -74,6 +75,7 @@ export default function Home() {
         <VenueSection lang={lang} />
         <ActivitiesSection lang={lang} />
         <SponsorsSection lang={lang} />
+        <PersonalSection lang={lang} />
         <FooterSection lang={lang} />
         <BackToTop />
       </Box>
